@@ -1,0 +1,28 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-positive">
+  
+    <h1 class="title">Events</h1>
+    <div class="buttons">
+      <button class="button button-clear"; ng-click="closeInfo()">Close</button>
+    </div>
+  </ion-header-bar>
+  
+  <!--<ion-nav-bar class="bar-positive">
+  <h1 class="title">Events</h1>
+        <ion-nav-back-button class="button-clear" style="display: block;" ng-click="goBack()">
+            <i class="icon ion-chevron-left"></i> Back
+        </ion-nav-back-button>
+
+    </ion-nav-bar>-->
+
+<ion-content class="stable-bg has-expanded-header profile_content" ng-controller="EventsController">
+        
+        <hr class="profile_itemborder">
+        <div ng-repeat="event in events">
+          <div class="profile_item" nav-clear menu-close>
+            <span class="profile_itemtitle">{{event.name}}</span>
+            <span class="profile_itemtitle arrow_icon"> > </span>
+          </div>
+        <hr class="profile_itemborder">
+    </ion-content>
+</ion-modal-view>

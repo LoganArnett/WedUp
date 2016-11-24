@@ -1,0 +1,31 @@
+<ion-view class="signupbg" title="New Group">
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button class="button-clear" style="display: block;" ng-click="goBack()">
+      <i class="icon ion-chevron-left"></i> Back
+    </ion-nav-back-button>
+    <ion-nav-buttons side="right">
+      <button class="button button-clear" ng-click="GroupSave()">Save</button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content scroll="false">
+    <div class="group-imgarea" align="center">
+      <img ng-show="!groupsetting.isChoosePhoto" class="group-icon" ng-src="images/groupavatar.png"/>
+      <img ng-show="groupsetting.isChoosePhoto" class="group-icon" ng-src="{{groupsetting.photoUrl}}"/>
+      <input class='group-name' type="text" ng-model="groupsetting.groupname" placeholder="Group Name">
+    </div>
+    <div class="group-available">
+      <span class="Available-text">Available People:</span>
+    </div>
+    <ion-scroll direction="y" delegate-handle="small" class="group-list">
+      <div class="group_padding" ng-repeat="person in personlist">
+        <div class="group_item" ng-click="selectperson(person.id)">
+          <div class="contactgroup_area">
+            <div class="person_name">{{person.name}} </div>
+            <div ng-show="person.ischecked" class="person_tick"> &#10003</div>
+          </div>
+          <hr class="border_line">
+        </div>
+      </div>
+    </ion-scroll>
+  </ion-content>
+</ion-view>

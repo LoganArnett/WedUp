@@ -1,0 +1,41 @@
+<ion-view title="Chat">
+
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="CreateGroup()">Create Group</button>
+  </ion-nav-buttons>
+  <ion-header-bar class="bar-light bar-subheader">
+    <label class="item item-input search_box">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="text" placeholder="Search" data-ng-model="searchForce">
+      <button ng-if="searchForce.length"
+              class="button button-icon ion-android-close input-button"
+              ng-click="clearSearch()">
+      </button>
+    </label>
+  </ion-header-bar>
+  <ion-content class="padding msgbgcolor">
+    <div class="GParea">
+      <div class="button-bar" >
+        <button class="Gbutton" ng-class="{'tab-active1': chattype == 'group'}" ng-click="setChattype('group')">Groups</button>
+        <button class="Pbutton" ng-class="{'tab-active2': chattype == 'people'}" ng-click="setChattype('people')">People</button>
+      </div>
+    </div>
+    <hr class="border_line">
+    <ion-scroll direction="y" delegate-handle="small" class="listArea">
+      <div ng-show="chattype == 'people'" ng-repeat="person in personlist">
+         <div class="person_item">
+            <div class="contactphoto_area">
+              <img ng-src="{{person.photoUrl}}" width="40px" height="40px">
+            </div>
+            <div class="contactname_area">
+              <div class="person_name">{{person.name}} </div>
+              <hr class="border_line">
+            </div>
+         </div>
+      </div>
+    </ion-scroll>
+  </ion-content>
+</ion-view>

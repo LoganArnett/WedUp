@@ -1,0 +1,43 @@
+<ion-view class="signupbg" title="Select Guests">
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button class="button-clear" style="display: block;" ng-click="goBack()">
+      <i class="icon ion-chevron-left"></i> Back
+    </ion-nav-back-button>
+    <ion-nav-buttons side="right">
+      <button class="button button-clear" ng-click="NoticeWeddingKey()">Next</button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-header-bar class="bar-light bar-subheader">
+    <label class="item item-input search_box">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="text" placeholder="Search" data-ng-model="searchForce">
+      <button ng-if="searchForce.length"
+              class="button button-icon ion-android-close input-button"
+              ng-click="clearSearch()">
+      </button>
+    </label>
+  </ion-header-bar>
+  <ion-content>
+    <!--<div>-->
+      <!--<ul>-->
+        <!--<li class="item item-checkbox" style="padding-left: 10px;" ng-repeat="guest in guestslist" ng-click="GetEmailAddress(guest.id)">-->
+          <!--{{guest.name}}-->
+          <!--<label class="checkbox">-->
+            <!--<input type="checkbox" class="guest_itemcheck">-->
+          <!--</label>-->
+        <!--</li>-->
+      <!--</ul>-->
+    <!--</div>-->
+
+    <ion-list>
+      <ion-item class="contact_item" auto-list-divider auto-list-divider-value="{{guest.name}}" ng-repeat="guest in guestslist" ng-click="GetEmailAddress(guest.id)">
+        {{guest.name}}
+        <label class="checkbox guest_itemcheck">
+          <input type="checkbox">
+        </label>
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-view>
+

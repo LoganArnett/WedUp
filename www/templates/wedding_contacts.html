@@ -1,0 +1,28 @@
+<ion-view class="signupbg" title="Import Contacts">
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-back-button class="button-clear" style="display: block;" ng-click="goBack()">
+            <i class="icon ion-chevron-left"></i> Back
+        </ion-nav-back-button>
+
+    </ion-nav-bar>
+    <ion-content scroll="false" class="padding">
+        <div class="import-contactsarea">
+            <span class="import-contacttitle">Please select how you want to import your contacts into WedUp!</span>
+        </div>
+        <div class="import-typearea">
+            <button  class="button button-full facebook-btn">
+                <img width="21px" height="21px" src="https://gal.proto.io/generated/e9511b681ff39f471a3907e0482c0ab6_ffffff.svg">
+                Facebook
+            </button>
+            <button  class="button button-full gmail-btn">
+                <img width="21px" height="21px" src="https://gal.proto.io/generated/ed078f8c5a575d93a2aa6bab051d76e1_ffffff.svg">
+                Gmail
+            </button>
+            <button  class="button button-full phone-btn" ng-click="GetPhoneContacts()">
+                <img class="ios7-button-icon" width="21px" height="21px" src="https://gal.proto.io/generated/fab46240847627b487eb10d506a358e1_ffffff.svg">
+                Phone Contacts
+            </button>
+        </div>
+    </ion-content>
+</ion-view>
+

@@ -1,0 +1,507 @@
+/* General
+==================================*/
+h1 {
+  color: #fff;
+  text-shadow: 0 1px 0px #000;
+  font-size: 42px;
+}
+
+
+/* Utilities
+==================================*/
+.title-bordered {
+  border-top: solid 2px #bbb;
+  padding-top: 30px;
+}
+
+p {
+  color: #555;
+  margin: 0 0 25px;
+}
+
+.scroll {
+  height: 100%;
+}
+
+
+/* Menu
+==================================*/
+.menu .bar.bar-header.expanded {
+  transition: all .5s ease-in-out;
+}
+
+.menu-open .bar.bar-header.expanded {
+  background-color: #222;
+}
+
+.menu h2 {
+  bottom: 0;
+  font-size: 18px;
+  left: 16px;
+  position: absolute;
+}
+
+.menu .avatar {
+  height: 88px;
+  width: 88px;
+}
+
+.menu.menu-left * {
+  font-weight: bold;
+}
+
+.menu-open .ion-navicon {
+  transform: rotate(-360deg);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-open .ion-navicon:before {
+  content: "\f2ca";
+}
+
+
+/* Login
+==================================*/
+.app-icon {
+  /*background-color: #fff;*/
+  /*background: url('../img/chat.png') center;*/
+  background-size: cover;
+  /*border-radius: 50%;*/
+  height: 125px;
+  margin: 0 auto;
+  width: 125px;
+}
+.welcome-blank {
+  height: 55%;
+}
+.signup-icon {
+  background-color: #fff;
+  background: url('../img/signupicon.jpg') center;
+  background-size: cover;
+  border-radius: 50%;
+  height: 125px;
+  margin: 0 auto;
+  width: 125px;
+}
+.social-login {
+  position: fixed;
+  bottom: 0;
+}
+/*----------------------------- Mobile chat style ------------------------------*/
+.wedding_bg {
+  background-image: url(../images/wedding1.png);
+  background-position: center;
+  background-size: cover;
+}
+.create_wedding {
+  width: 100%;
+  height: 150px;
+  background-color: rgba(153,102,204,0.75);
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.existing_wedding {
+  width: 100%;
+  height: 150px;
+  background-color: rgba(255,255,240,0.75);
+  text-align: center;
+
+}
+.wedding_create {
+  color: white;
+  line-height: 150px;
+}
+.wedding_join {
+  line-height: 150px;
+}
+.weddingkey_area {
+  width: 100%;
+  height: 30%;
+  margin-top: 100px;
+}
+.weddingkey_input {
+  margin-bottom: 40px;
+}
+.loginbg {
+  background-image: url(../img/login.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.signupbg {
+  background-image: url(../img/signupbg.png);
+  background-position: center;
+  background-size: cover;
+}
+.forget-pos {
+  text-align: center;
+}
+.forget-color {
+  color: #9966cc;
+  font-size: large;
+}
+.forget-icon {
+  background-color: #fff;
+  background: url('../img/forgetkey.jpg') center;
+  background-size: cover;
+  border-radius: 50%;
+  height: 125px;
+  margin: 0 auto;
+  width: 125px;
+}
+.profile-icon {
+  background-color: #fff;
+  background-size: cover;
+  border-radius: 50%;
+  height: 125px;
+  margin: 0 auto;
+  width: 125px;
+}
+.group-icon {
+  background-color: #fff;
+  background-size: cover;
+  border-radius: 50%;
+  height: 100px;
+  margin-top: 20px;
+  width: 100px;
+}
+.group-name {
+  width: 25%;
+}
+.group-imgarea {
+  width: 100%;
+  height: 30%;
+}
+.group-available {
+  width: 100%;
+  height: 4%;
+  background-color: lightgray;
+}
+.group-list {
+  width: 100%;
+  height: 64%;
+}
+.Available-text {
+  margin-left: 15px;
+  color: #0ade0a;
+}
+.previewarea {
+  width: 100%;
+  height: 30%;
+}
+.msg-border{
+  border: 0px;
+}
+.msg-area {
+  width: 60%;
+  height: 100%;
+  float: left;
+}
+.sendbtn-area {
+  width: 25%;
+  height: 100%;
+  margin-top: 10px;
+  float: left;
+}
+.sendimg-area {
+  padding-top: 20px;
+  width: 15%;
+  height: 100%;
+  float: left;
+}
+.photoarea {
+  width: 100%;
+  height: 50px;
+}
+.photoTakearea {
+  width: 50%;
+  height: 50px;
+  float: left;
+}
+.photoGalleryarea {
+  width: 50%;
+  height: 50px;
+  float: left;
+}
+.user-description {
+  width: 100%;
+  height: 45px;
+
+}
+.profile-name {
+  border: 0px;
+  padding-top: 0px;
+  margin-left: 10px;
+  background-color: transparent;
+}
+.username-label {
+  color: #387ef5;
+  margin-left: 10px;
+}
+.search_box {
+  width: 100%;
+  padding-left: 5px;
+  border-radius: 10px;
+  border-color: #9966cc;
+}
+.GParea {
+  width: 100%;
+  height: 10%;
+}
+.listArea {
+  width: 100%;
+  height: 90%;
+}
+.border_line {
+  border-color: #9966cc;
+}
+.contactphoto_area {
+  width: 15%;
+  float: left;
+}
+.contactname_area {
+  width: 85%;
+  float: left;
+}
+.Gbutton {
+  width: 50%;
+  height: 40px;
+  text-align: center;
+  border-left-color: #9966cc;
+  border-top-color: #9966cc;
+  border-bottom-color: #9966cc;
+  float: left;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  background-color: #ffffff;
+  color: #9966cc;
+  margin-right: 0px;
+}
+.Pbutton {
+  width: 50%;
+  height: 40px;
+  text-align: center;
+  border-right-color: #9966cc;
+  border-top-color: #9966cc;
+  border-bottom-color: #9966cc;
+  float: left;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #ffffff;
+  color: #9966cc;
+  margin-right: 0px;
+}
+.tab-item {
+  color:  #ffffff !important;
+  background-color: #9966cc;
+  border-color: #9966cc;
+}
+.tab-item-active {
+  color:  #ffffff !important;
+  background-color: #9966cc;
+  border-color: #9966cc;
+}
+.tab-active1 {
+  color:  #ffffff !important;
+  background-color: #9966cc;
+  border-color: #9966cc;
+}
+.tab-nav {
+  color:  #ffffff;
+  background-color: #9966cc;
+  border-color: #9966cc;
+}
+.tab-active2 {
+  color:  #ffffff !important;
+  background-color: #9966cc;
+  border-color: #9966cc;
+}
+.imagearea {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.WeddingInfo_area {
+  width: 100%;
+  height: 50%;
+  background-color: #9966cc;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.wedding-info {
+  width: 100%;
+  height: 50%;
+  font-size: 15px;
+}
+.invite-btnarea {
+
+}
+.wedding-invitearea {
+  width: 100%;
+  height:70% ;
+}
+
+.type_title {
+  color: grey;
+}
+.type_email {
+  color: #9966cc;
+}
+.type_facebook {
+  color: blue;
+}
+.type_cancel {
+  color: grey;
+}
+.import-contactsarea {
+  width: 100%;
+  height: 80px;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 30px;
+}
+.import-contacttitle {
+  color: #9966cc;
+}
+.import-typearea {
+  width: 100%;
+  height: 200px;
+}
+.emaillogin-btn {
+  background-color: #9966cc;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+}
+.facebook-btn {
+  background-color: rgba(27,27,250,0.50);
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+}
+.gmail-btn {
+  background-color: rgba(255, 0, 10, 0.5);
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+}
+.phone-btn {
+  background-color: rgba(204, 204,204, 0.5);
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+}
+.invite-description {
+  width: 100%;
+  height: 100%;
+}
+.signupbtn-position {
+  float: right;
+  padding-top: 28px;
+  padding-right: 10px;
+}
+.welcome-titlearea {
+  width: 100%;
+  height: 10%;
+  text-align: center;
+  color: white;
+  font-size: 25px;
+}
+.login-typearea {
+  height: 35%;
+}
+.forget-notice {
+  color: grey;
+  font-size: 16px;
+}
+.guest_itemcheck {
+  margin: 0px;
+  float: right;
+}
+.email_list {
+  margin-top: 3px;
+}
+.countdown_area {
+  width: 100%;
+  height: 10%;
+  text-align: center;
+  background-color: white;
+}
+.events_area {
+  width: 100%;
+  height: 30%;
+}
+.accomodation_area {
+  width: 100%;
+  height: 30%;
+}
+.giftregistry_area {
+  width: 100%;
+  height: 30%;
+}
+.wedding_time {
+
+}
+.contact_item {
+  padding:0px;
+  padding-left: 16px;
+  line-height: 44px;
+}
+.person_item {
+  width: 100%;
+  height: 50px;
+}
+.profile_header {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  background-color: #9966cc;
+}
+.profile_avatar {
+  width: 60px;
+  height: 60px;
+  margin-top: 20px;
+  border-radius: 50%;
+}
+.profile_item {
+  height: 40px;
+  padding-left: 10px;
+}
+.profile_itemtitle {
+  color: #9966cc;
+  font-size: 14px;
+  line-height: 40px;
+}
+.profile_itemborder {
+  margin-left: 10px;
+  border-color: #d98fec;
+}
+.arrow_icon {
+  float: right;
+  margin-right: 15px;
+}
+.person_name {
+  color: #9966cc;
+  font-size: 16px;
+  float: left;
+}
+.person_tick {
+  color: #9966cc;
+  float: right;
+  margin-right: 15px;
+}
+.group_item {
+  width: 100%;
+  height: 30px;
+}
+.contactgroup_area {
+  width: 100%;
+  float: left;
+}
+.group_padding {
+  padding-left: 10px;
+  margin-top: 10px;
+}

@@ -1,0 +1,55 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-positive">
+    <h1 class="title">Profile</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeProfile()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content class="signupbg">
+    <div class="hero no-header flat">
+      <div class="previewarea" align="center">
+        <img ng-show="!profile.isChoosePhoto" class="profile-icon" ng-src="images/profileavatar.jpg"/>
+        <img ng-show="profile.isChoosePhoto" class="profile-icon" ng-src="{{profile.photoUrl}}"/>
+      </div>
+    </div>
+    <div class="photoarea">
+      <div class="photoTakearea" align="center">
+        <img width="40px" height="37px" src="img/take_btn.png" ng-click="takePhoto()" /><BR>
+      </div>
+
+      <div class="photoGalleryarea" align="center">
+        <img width="40px" height="37px" src="img/upload_btn.png" ng-click="choosePhoto()"/><BR>
+      </div>
+    </div>
+    <div class="padding">
+        <span class="username-label">User Name</span>
+        <input class="profile-name" placeholder="Please Input your name" ng-model="profile.username" placeholder="" highlight-color="balanced" type="text">
+    </div>
+    <div class="padding">
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Choose your role
+        </div>
+        <select ng-model="profile.role" required="">
+          <option>groomsman</option>
+          <option>bridesmaid</option>
+          <option>best man</option>
+          <option>maid of honor</option>
+          <option>family</option>
+          <option>guest</option>
+        </select>
+      </label>
+    </div>
+    <div class="padding">
+      <label class="item item-input">
+        <textarea class="user-description" ng-model="profile.describe" placeholder="description">
+        </textarea>
+      </label>
+    </div>
+    <div class="padding">
+        <button ng-click="ProfileSave()"  class="button button-full button-positive ink">Submit</button>
+    </div>
+
+  </ion-content>
+
+</ion-modal-view>

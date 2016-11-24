@@ -1,0 +1,17 @@
+<ion-view class="signupbg" title="Send Invite">
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-back-button class="button-clear" style="display: block;" ng-click="goBack()">
+            <i class="icon ion-chevron-left"></i> Back
+        </ion-nav-back-button>
+        <ion-nav-buttons side="right">
+            <button class="button button-clear" ng-click="SendWeddingKey()">Send</button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="padding" scroll="false">
+          <label class="item item-input invite-description">
+              <textarea class="invite-description"  ng-model="invite.describe" placeholder="description">
+              </textarea>
+
+          </label>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,18 @@
+<ion-view class="signupbg" title="Join Existing Wedding">
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button class="button-clear" style="display: block;" ng-click="goBack()">
+      <i class="icon ion-chevron-left"></i> Back
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content scroll="false">
+    <div class="weddingkey_area">
+      <div class="weddingkey_input">
+        <ion-md-input ng-model="user.weddingkey" placeholder="Wedding Key" highlight-color="balanced" type="text"></ion-md-input>
+      </div>
+      <div class="padding">
+        <button ng-click="SubmitKey()"  class="button button-full emaillogin-btn">Submit</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+

@@ -1,0 +1,20 @@
+<ion-view class="signupbg" title="Signup">
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button class="button-clear" style="display: block;" ng-click="goBack()">
+      <i class="icon ion-chevron-left"></i> Back
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content scroll="false">
+
+    <div class="list">
+      <ion-md-input ng-model="users.email" placeholder="Email Address" highlight-color="balanced" type="text"></ion-md-input>
+      <ion-md-input ng-model="users.password" placeholder="Email Password" highlight-color="energized" type="password"></ion-md-input>
+    </div>
+    <div class="padding">
+      <button ng-click="Signup()"  class="button button-full emaillogin-btn">SignUp</button>
+    </div>
+  </ion-content>
+</ion-view>
+
+
+

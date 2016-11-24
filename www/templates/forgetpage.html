@@ -1,0 +1,19 @@
+<ion-view class="signupbg" title="Login">
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button class="button-clear" style="display: block;" ng-click="goBack()">
+      <i class="icon ion-chevron-left"></i> Back
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content scroll="false">
+    <div class="padding">
+      <p class="forget-notice">Enter your email and we will send you a link to reset your password</p>
+    </div>
+    <div class="list">
+      <ion-md-input ng-model="loginuser.submitEmail" placeholder="Email" highlight-color="balanced" type="text"></ion-md-input>
+    </div>
+    <div class="padding">
+      <button ng-click="Keysubmit()"  class="button button-full emaillogin-btn">Request to Reset Password</button>
+    </div>
+  </ion-content>
+</ion-view>
+

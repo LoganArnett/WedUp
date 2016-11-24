@@ -1,0 +1,73 @@
+<ion-side-menus enable-menu-with-back-views="true">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-positive nav-title-slide-ios7" ng-click="openMenu()">
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon"></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-tabs class="tabs-icon-top tabs-color-active-positive">
+
+      <ion-tab title="Info" icon-off="ion-information" icon-on="ion-information" href="#/app/info">
+        <ion-nav-view name="chat-info"></ion-nav-view>
+      </ion-tab>
+
+      <ion-tab title="Recent" icon-off="ion-clock" icon-on="ion-clock" href="#/app/recent">
+        <ion-nav-view name="chat-recent"></ion-nav-view>
+      </ion-tab>
+
+      <ion-tab title="Chat" icon-off="ion-chatboxes" icon-on="ion-chatboxes" href="#/app/chatroom">
+        <ion-nav-view name="chat-tab">
+        </ion-nav-view>
+      </ion-tab>
+
+      <ion-tab title="Gallery" icon-off="ion-camera" icon-on="ion-camera" href="#/app/gallery">
+        <ion-nav-view name="chat-gallery"></ion-nav-view>
+      </ion-tab>
+
+      <ion-tab title="Playlist" icon-off="ion-music-note" icon-on="ion-music-note" href="#/app/playlist" >
+        <ion-nav-view name="chat-playlist"></ion-nav-view>
+      </ion-tab>
+
+    </ion-tabs>
+  </ion-side-menu-content>
+  <ion-side-menu side="left">
+
+    <ion-content class="stable-bg has-expanded-header profile_content">
+        <div class="profile_header">
+          <img class="profile_avatar" style="background: url({{profile.photoUrl}}); background-size: cover;">
+        </div>
+        <div class="profile_item" ng-click="ProfilePage()" nav-clear menu-close>
+          <span class="profile_itemtitle">My Profile</span>
+          <span class="profile_itemtitle arrow_icon"> > </span>
+        </div>
+        <hr class="profile_itemborder">
+        <div class="profile_item" nav-clear menu-close>
+          <span class="profile_itemtitle">Manage Info</span>
+          <span class="profile_itemtitle arrow_icon"> > </span>
+        </div>
+        <hr class="profile_itemborder">
+        <div class="profile_item" nav-clear menu-close>
+          <span class="profile_itemtitle">Manage Guests</span>
+          <span class="profile_itemtitle arrow_icon"> > </span>
+        </div>
+        <hr class="profile_itemborder">
+        <div class="profile_itemborder" nav-clear menu-close>
+          <span class="profile_itemtitle">Manage Photo Albums</span>
+          <span class="profile_itemtitle arrow_icon"> > </span>
+        </div>
+        <hr class="profile_itemborder">
+        <div ng-repeat="wedding in weddingnames">
+          <div class="profile_item" nav-clear menu-close>
+            <span class="profile_itemtitle">{{wedding.weddingname}}</span>
+            <span class="profile_itemtitle arrow_icon"> > </span>
+          </div>
+          <hr class="profile_itemborder">
+        </div>
+        <div class="profile_item" ng-click="Logout()" nav-clear menu-close>
+          <span class="profile_itemtitle">Log out</span>
+          <span class="profile_itemtitle arrow_icon"> > </span>
+        </div>
+        <hr class="profile_itemborder">
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

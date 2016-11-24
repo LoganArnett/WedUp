@@ -1,0 +1,39 @@
+<ion-view hide-nav-bar="true">
+
+    <!--<ion-slide-box style="width: 100%;height: 100%;" auto-play="true" does-continue="true">
+      <ion-slide ng-repeat="image in images">
+        <div style="width: 100%; height: 100%; background-image:url({{::image}}); background-size: auto 100%; background-repeat: no-repeat; background-position: center;"></div>
+      </ion-slide>
+    </ion-slide-box>-->
+
+    <ion-content scroll="false">
+        <ion-slides options="options" slider="data.slider">
+            <ion-slide-page ng-repeat="image in images" >
+                <div style="width: 100%; height: 100%; background-image:url({{::image}}); background-size: auto 100%; background-repeat: no-repeat; background-position: center;">
+                    <div class="welcome-blank">
+                        <div class="content signupbtn-position">
+                              <button ng-click="SignupScreen()"  class="button phone-btn">Signup</button>
+                        </div>
+                    </div>
+                    <div class="welcome-titlearea">
+                        Welcome to </br></br> WEDUP!
+                    </div>
+                    <div class="padding login-typearea">
+                        <div>
+                            <button ng-click="FacebookSignin()" class="button button-full facebook-btn button-border  ion-social-facebook "> &nbsp; Login with Facebook</button>
+                        </div>
+                        <div>
+                            <button ng-click="GoogleSignin()" class="button button-full gmail-btn button-border ion-social-google ">&nbsp; Login with Google</button>
+                        </div>
+                        <div>
+                            <button ng-click="Loginpage()"  class="button button-full phone-btn button-border ion-email">&nbsp; Login with Email</button>
+                        </div>
+                    </div>
+                </div>
+            </ion-slide-page>
+        </ion-slides>
+
+
+    </ion-content>
+</ion-view>
+

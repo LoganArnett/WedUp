@@ -1,0 +1,30 @@
+<ion-view title="Chat">
+
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()"></button>
+  </ion-nav-buttons>
+  <ion-content class="padding msgbgcolor">
+    <ion-scroll direction="y" delegate-handle="small" class="messageArea">
+      <div id="messages">
+        <span id="message-filler"></span>
+      </div>
+    </ion-scroll>
+    <div class="userstateArea">
+      <p ng-bind="typingUser" class="typing_state" ng-show="user.isTyping"></p>
+      <p class="typing_state" ng-show="user.isTyping">&nbsp;is typing...</p>
+    </div>
+    <div class="sendmsgfrm">
+      <div class="msg-area">
+        <ion-md-input ng-keydown="Typingfunc()"  ng-model="user.message" class="msg-border" placeholder="Message..."  highlight-color="royal" type="text"></ion-md-input>
+      </div>
+      <div class="sendbtn-area">
+        <button ng-click="SendMessage()" class="button button-full button-positive ink">Send</button>
+      </div>
+      <div class="sendimg-area">
+        <img ng-click="SendImage()" src="img/imgupload-icon.jpg" width="45px" height="45px"/>
+
+      </div>
+      <input type="file" id="file_upload" style="display: none;">
+    </div>
+  </ion-content>
+</ion-view>
