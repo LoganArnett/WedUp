@@ -8,13 +8,6 @@
 angular.module('mychat', ['ionic','ionic.ion.autoListDivider', 'mychat.services','mychat.chatservice','mychat.photoservice','mychat.wedservice','ionMdInput','ngCordova','ngCordovaOauth','ngSanitize','firebase'])
 .run(function($state,$ionicPlatform) {
   $ionicPlatform.ready(function() {
-    var config = {
-      apiKey: "AIzaSyAimqUhDlDP3Cz0Ee00bsjNKnrsRJlPuFQ",
-      authDomain: "wedup-39904.firebaseapp.com",
-      databaseURL: "https://wedup-39904.firebaseio.com",
-      storageBucket: "wedup-39904.appspot.com",
-  };
-    firebase.initializeApp(config);
 
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)

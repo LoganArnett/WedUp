@@ -25,27 +25,30 @@ angular.module('mychat')
         });
         weddingservice.GetWeddingNames().then(function(result) {
           $scope.weddingnames = result.weddingNames;
-          //console.log($scope.weddingnames);
         });
       }
+
       $scope.Logout = function() {
-        AuthService.Logout().then(function(Result){
+        return AuthService.Logout().then(function(Result){
+          console.log(Result)
           if(Result.loggingout == true) {
             $state.go('welcomewedup');
             $(".messageReceive-container").remove();
             $(".message-container").remove();
           }
-
         });
       }
-      $ionicModal.fromTemplateUrl('templates/profilepage.html',{
+
+      $ionicModal.fromTemplateUrl('templates/profilepage.html', {
         scope: $scope
       }).then(function (modal){
         $scope.profilepage = modal;
       });
+
       $scope.closeProfile = function () {
         $scope.profilepage.hide();
       }
+
       $scope.ProfilePage = function() {
         ProfileService.GetuserInfo().then(function(result) {
           $scope.profile.username = result.name;
@@ -63,6 +66,7 @@ angular.module('mychat')
         });
         $scope.profilepage.show();
       }
+      
       $scope.ProfileSave = function() {
         //alert($scope.profile.username);
         ProfileService.ProfileSave($scope.profile).then(function(result){

@@ -1,3 +1,4 @@
+'use strict';
 angular.module('mychat.services',[])
 .factory("AuthService", function($rootScope,$ionicLoading,$ionicPopup,$q){
     var loggedIn = false;
@@ -6,47 +7,49 @@ angular.module('mychat.services',[])
     var facebookIn = false;
     var isSendResetEmail = false;
 
+    function signInWithProvider(provider, errorTitle) {
+      return firebase.auth().signInWithPopup(provider).then(function(result) {
+          localStorage.setItem("TokenId", result.credential.accessToken);
+          return $ionicLoading.hide();
+      })
+      .catch(function(error) {
+          $ionicLoading.hide();
+          var alertPopup = $ionicPopup.alert({
+            title: errorTitle,
+            template: error
+          });
+      });
+    }
+
     return {
+
       Emaillogin: function(emailname, emailpwd) {
         var deferred = $q.defer();
         $ionicLoading.show();
         firebase.auth().signInWithEmailAndPassword(emailname, emailpwd)
-        .then(function(result){
+        .then(function(result) {
           $ionicLoading.hide();
           var user = firebase.auth().currentUser;
-          if(user != null) {
+          if (user != null) {
             localStorage.setItem("TokenId", result.refreshToken);
           }
           var profileRef = firebase.database().ref('profile/' + user.uid);
           profileRef.once('value').then(function (data) {
             var val = data.val();
-            if(val == null) {
+            if (val == null) {
               profileRef.push({
-                name:         "No name",
-                photoUrl:     "images/profileavatar.jpg",
-                role:         '',
-                describe:     ''
+                name: "No name",
+                photoUrl: "images/profileavatar.jpg",
+                role: '',
+                describe: ''
               });
             }
           });
           loggedIn = true;
-           deferred.resolve({
+          return deferred.resolve({
              "loggedIn": loggedIn,
              "id": user.uid
            });
-        }, function(error) {
-          $ionicLoading.hide();
-            var errorCode = error.code;
-            var errorMessage = error.message;
-          var alertPopup = $ionicPopup.alert({
-              title: 'Login',
-              template: errorMessage
-            });
-          loggedIn = false;
-            deferred.resolve({
-              "loggedIn": loggedIn,
-              "id": ''
-            });
         })
         .catch(function(error){
           var errorCode = error.code;
@@ -64,22 +67,15 @@ angular.module('mychat.services',[])
         })
         return deferred.promise;
       },
+
       EmailSignup: function(emailname, emailpwd) {
         $ionicLoading.show();
-        firebase.auth().createUserWithEmailAndPassword(emailname,emailpwd)
+        firebase.auth().createUserWithEmailAndPassword(emailname, emailpwd)
           .then(function(){
             $ionicLoading.hide();
             var alertPopup = $ionicPopup.alert({
               title: 'Signup',
               template: 'Signup success'
-            });
-          },function(error){
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            $ionicLoading.hide();
-            var alertPopup = $ionicPopup.alert({
-              title: 'Signup',
-              template: errorMessage
             });
           })
           .catch(function(error){
@@ -91,42 +87,47 @@ angular.module('mychat.services',[])
               template: errorMessage
             });
           });
-
       },
+
       SigninwithGoogle: function() {
-
+          $ionicLoading.show();
+          var provider = new firebase.auth.GoogleAuthProvider();
+          return signInWithProvider(provider, 'GoogleLogin');
       },
+
       SigninwithFacebook: function() {
-
+          $ionicLoading.show();
+          var provider = new firebase.auth.FacebookAuthProvider();
+          return signInWithProvider(provider, 'FacebookLogin');
       },
+
       Logout: function() {
         var deferred = $q.defer();
-        firebase.auth().signOut().then(function(){
+        return firebase.auth().signOut().then(function(){
           loggingout = true;
           localStorage.removeItem("TokenId");
-          deferred.resolve({
+          return {
             "loggingout": loggingout
-          });
-
-        }, function(error){
+          };
+        })
+        .catch(function(error){
           var errorCode = error.code;
           var errorMessage = error.message;
           loggingout = false;
-          deferred.resolve({
-            "loggingout": loggingout
-          });
           var alertPopup = $ionicPopup.alert({
             title: 'Log out',
             template: errorMessage
           });
-        })
-        return deferred.promise;
+          return deferred.resolve({
+            "loggingout": loggingout
+          });
+        });
       },
+
       SendResetEmail: function(SubmitEmail) {
         var deferred = $q.defer();
         $ionicLoading.show();
         firebase.auth().sendPasswordResetEmail(SubmitEmail).then(function(result){
-          console.log(result);
           isSendResetEmail = true;
           deferred.resolve({
             "isSendResetEmail": isSendResetEmail
@@ -136,17 +137,8 @@ angular.module('mychat.services',[])
             template: "Reset password email is sent"
           });
           $ionicLoading.hide();
-        }, function(error) {
-          isSendResetEmail = false;
-          deferred.resolve({
-            "isSendResetEmail": isSendResetEmail
-          });
-          $ionicLoading.hide();
-          var alertPopup = $ionicPopup.alert({
-            title: 'Send Reset password Error',
-            template: error
-          });
-        }).catch(function(error){
+          return deferred.promise;
+        }).catch(function(error) {
           isSendResetEmail = false;
           deferred.resolve({
             "isSendResetEmail": isSendResetEmail
@@ -157,9 +149,6 @@ angular.module('mychat.services',[])
             template: error
           });
         });
-        return deferred.promise;
       }
-
     }
   });
-

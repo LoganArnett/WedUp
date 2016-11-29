@@ -35,77 +35,15 @@ angular.module('mychat')
             $state.go('signup');
         }
 
+        function goToWedding() {
+            return $state.go('wedding');
+        }
 
         $scope.GoogleSignin = function () {
-
-          $ionicLoading.show();
-          $cordovaOauth.google("456776320064-6l2gijobg4fk6s1iek0nq8rttmdj2e12.apps.googleusercontent.com", ["https://www.googleapis.com/auth/urlshortener", "https://www.googleapis.com/auth/userinfo.email"]).then(function(result) {
-            //alert(JSON.stringify(result));
-            var credential = firebase.auth.GoogleAuthProvider.credential(
-            result.id_token);
-            firebase.auth().signInWithCredential(credential)
-              .then(function(result) {
-                localStorage.setItem("TokenId", result.access_token);
-                $ionicLoading.hide();
-                $state.go('wedding');
-              })
-              .catch(function(error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                // The email of the user's account used.
-                var email = error.email;
-                // The firebase.auth.AuthCredential type that was used.
-                var credential = error.credential;
-                $ionicLoading.hide();
-                var alertPopup = $ionicPopup.alert({
-                  title: 'GoogleLogin',
-                  template: errorMessage
-                });
-            });
-          }, function(error) {
-            //console.log(error);
-            $ionicLoading.hide();
-            var alertPopup = $ionicPopup.alert({
-              title: 'GoogleLogin',
-              template: error
-            });
-          });
+          return AuthService.SigninwithGoogle().then(goToWedding);
         }
         $scope.FacebookSignin = function () {
-          $ionicLoading.show();
-          $cordovaOauth.facebook('158625727876674', ["email"]).then(function(result) {
-            var credential = firebase.auth.FacebookAuthProvider.credential(
-              result.access_token);
-            firebase.auth().signInWithCredential(credential).then(function(result) {
-                localStorage.setItem("TokenId", result.access_token);
-                $ionicLoading.hide();
-                $state.go('wedding');
-              })
-              .catch(function(error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                // The email of the user's account used.
-                var email = error.email;
-                // The firebase.auth.AuthCredential type that was used.
-                var credential = error.credential;
-                $ionicLoading.hide();
-                var alertPopup = $ionicPopup.alert({
-                  title: 'FacebookLogin',
-                  template: errorMessage
-              });
-            });
-
-          }, function(error) {
-            // error
-            $ionicLoading.hide();
-            var alertPopup = $ionicPopup.alert({
-              title: 'FacebookLogin',
-              template: error
-            });
-          });
-
+          return AuthService.SigninwithFacebook().then(goToWedding);
         }
 
     });
